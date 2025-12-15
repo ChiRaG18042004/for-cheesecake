@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>This Is How I’ll Change</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+    color: #f2f2f2;
+    scroll-behavior: smooth;
+  }
+
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  section {
+    min-height: 100vh;
+    padding: 90px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 42px;
+    color: #ff8fab;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 20px;
+    max-width: 780px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  button {
+    padding: 16px 36px;
+    font-size: 18px;
+    border-radius: 40px;
+    border: none;
+    background: #ff8fab;
+    color: #0d0d0d;
+    cursor: pointer;
+    margin-top: 30px;
+  }
+
+  ul {
+    text-align: left;
+    max-width: 720px;
+    font-size: 20px;
+    line-height: 1.8;
+  }
+
+  li {
+    margin-bottom: 15px;
+  }
+
+  .fade {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: all 1.3s ease;
+  }
+
+  .fade.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- SECTION 1 -->
+<section>
+  <h1>This isn’t just a sorry.</h1>
+  <p>
+    It’s me slowing down, reflecting,  
+    and choosing to fix what kept hurting you.
+  </p>
+  <button onclick="scrollToSection('s2')">Continue</button>
+</section>
+
+<!-- SECTION 2 -->
+<section id="s2">
+  <p class="fade">
+    I understand now why you felt like  
+    you weren’t my priority.
+  </p>
+  <p class="fade">
+    Especially when I got busy with friends  
+    and forgot to check in.
+  </p>
+  <p class="fade">
+    Even if I didn’t mean it —  
+    my actions made you feel optional.
+  </p>
+</section>
+
+<!-- SECTION 3 -->
+<section>
+  <p class="fade">
+    I kept saying sorry and expected things  
+    to move on.
+  </p>
+  <p class="fade">
+    But that made you feel unheard.
+  </p>
+  <p class="fade">
+    A real apology comes with real change.
+  </p>
+</section>
+
+<!-- SECTION 4 -->
+<section>
+  <h1 class="fade">This is the change.</h1>
+  <ul class="fade">
+    <li>Before I go out → I’ll tell you.</li>
+    <li>While I’m out → I’ll check in, even briefly.</li>
+    <li>When I’m back → I’ll come back to you properly.</li>
+    <li>I’m using reminders so this never depends on memory.</li>
+  </ul>
+</section>
+
+<!-- SECTION 5 : GOOD THINGS -->
+<section>
+  <h1 class="fade">Things I value about you</h1>
+  <p class="fade">
+    You care deeply — that’s why this hurt you.
+  </p>
+  <p class="fade">
+    You’ve been patient even when I didn’t make it easy.
+  </p>
+  <p class="fade">
+    You’ve always wanted clarity, not perfection.
+  </p>
+  <p class="fade">
+    I don’t want to lose that by being careless.
+  </p>
+</section>
+
+<!-- SECTION 6 -->
+<section>
+  <p class="fade">
+    I want you to feel calm with me.
+  </p>
+  <p class="fade">
+    Chosen — not adjusted.
+  </p>
+  <p class="fade">
+    This isn’t me asking you to forget.
+  </p>
+  <p class="fade">
+    It’s me asking you to watch my actions.
+  </p>
+</section>
+
+<script>
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+}
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll(".fade").forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
